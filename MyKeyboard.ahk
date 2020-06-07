@@ -41,6 +41,15 @@
 ; close tab
 !w::Send ^w
 
+; select address line
+!l::Send ^l
+
+; next tab
++!]::Send ^%A_Tab%
+
+;previous tab
++![::Send ^+%A_Tab%
+
 ; Close windows (cmd + q to Alt + F4)
 !q::Send !{F4}
 
@@ -71,3 +80,4 @@ Lwin & Tab::AltTab
 ; command+click
 !LButton::Send ^LButtonButton
 
+; Some keys
