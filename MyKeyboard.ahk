@@ -61,7 +61,6 @@ Lwin & Tab::AltTab
 
 
 
-
 ; Google Chrome
 #IfWinActive, ahk_class Chrome_WidgetWin_1
 
@@ -75,15 +74,19 @@ Lwin & Tab::AltTab
 
 !r::Send ^r
 
+; open in new tab
+
+
 #IfWinActive
 
 
 
 ; Language
-; ^space::Send ^+
+!Space::Send #{Space}
+#Space::return
 
 ; Spotlight
-!Space::Send ^{Esc}
+^Space::Send ^{Esc}
 
 
 ; command+click
