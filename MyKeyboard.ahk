@@ -3,16 +3,16 @@
 !+3::send #{PrintScreen}
 
 ; Capture portion of the screen with CMD/WIN + SHIFT + 4
-!+4::#+s
+!+4::send #+s
 
 
 ; Make Ctrl + S work with cmd (windows) key
 !s::Send, ^s
 
-
 ; Selecting
 !a::Send, ^a
 
+!n::Send, ^n
 
 ; Copying
 !c::Send, ^c
@@ -61,6 +61,7 @@ Lwin & Tab::AltTab
 
 
 
+
 ; Google Chrome
 #IfWinActive, ahk_class Chrome_WidgetWin_1
 
@@ -70,14 +71,21 @@ Lwin & Tab::AltTab
 ; Show source code with cmd + alt + u
 #!u::Send ^u
 
+; reload tab
+
+!r::Send ^r
+
 #IfWinActive
 
 
 
 ; Language
-^space::Send ^!
+; ^space::Send ^+
+
+; Spotlight
+!Space::Send ^{Esc}
+
 
 ; command+click
-!LButton::Send ^LButtonButton
+!LButton::return
 
-; Some keys
