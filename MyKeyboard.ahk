@@ -61,6 +61,7 @@ Lwin & Tab::AltTab
 
 
 
+
 ; Google Chrome
 #IfWinActive, ahk_class Chrome_WidgetWin_1
 
@@ -73,9 +74,6 @@ Lwin & Tab::AltTab
 ; reload tab
 
 !r::Send ^r
-
-; open in new tab
-
 
 #IfWinActive
 
@@ -92,3 +90,29 @@ Lwin & Tab::AltTab
 ; command+click
 !LButton::return
 
+
+
+$+5::CheckRus(":","%")  ; Двоеточие через Shift+5
+$+6::CheckRus(",","^")  ; Запятая через Shift+6
+$+7::CheckRus(".","&")  ; Точка через Shift+7
+$+8::CheckRus(";","*") ; Точка с запятой через Shift+8
+$+/::CheckRus("?","?")  ; Вопрос через Shift+/
+
+
+
+CheckRus(rus,eng)
+{
+SetFormat, Integer, H
+WinGet, WinID,, A
+ThreadID:=DllCall("GetWindowThreadProcessId", "Int", WinID, "Int", 0)
+InputLocaleID:=DllCall("GetKeyboardLayout", "Int", ThreadID)
+if(InputLocaleID == "0x4190419")
+{
+Send %rus%
+}
+if(InputLocaleId == "0x4090409")
+{
+SendRaw %eng%
+}
+Return
+}
