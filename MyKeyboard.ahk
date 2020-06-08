@@ -35,7 +35,7 @@
 ; Redo
 !y::Send ^y
 
-; New tab
+; new tab
 !t::Send ^t
 
 ; close tab
@@ -76,6 +76,19 @@ Lwin & Tab::AltTab
 !r::Send ^r
 
 #IfWinActive
+
+
+;Terminal
+
+#IfWinActive, ahk_class CASCADIA_HOSTING_WINDOW_CLASS
+; new tab
+!t::Send ^+t
+
+; close tgab
+!w::Send ^+w
+
+#IfWinActive
+
 
 
 
